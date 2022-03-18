@@ -4,7 +4,10 @@ plugins {
 
     id 'net.mamoe.mirai-console' version '2.10.1'
 }
-
+dependencies {
+    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.30'
+}
 group = 'cn.imldy.mirai.console.plugin'
 version = '1.0-SNAPSHOT'
 
