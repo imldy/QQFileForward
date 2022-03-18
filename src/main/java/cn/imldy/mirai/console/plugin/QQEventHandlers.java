@@ -50,7 +50,7 @@ public class QQEventHandlers extends SimpleListenerHost {
             return;
 
         // 确定本地文件存放目录
-        File path = FileForward.INSTANCE.resolveDataFile("/量化");
+        File path = FileForward.INSTANCE.resolveDataFile("/");
         File toDayFile = new File(path + "/" + fileMessage.getName());
 
         // 下载文件
