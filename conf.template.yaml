@@ -3,3 +3,4 @@ patterns: # 支持正则表达式
   - ".*.docx" # word文件
 sourceGroup: 110 # 源群
 targetGroup: 120 # 目标群
+targetPath: 量化 # 目标群文件路径（需提前创建）
