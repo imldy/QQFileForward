@@ -1,5 +1,6 @@
 package cn.imldy.mirai.console.plugin;
 
+import cn.imldy.mirai.console.plugin.conf.MyConf;
 import cn.imldy.mirai.console.plugin.pojo.Conf;
 import net.mamoe.mirai.console.plugin.jvm.JavaPlugin;
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescriptionBuilder;
@@ -39,9 +40,9 @@ public final class FileForward extends JavaPlugin {
     private void loadConfiguration() throws FileNotFoundException {
         File configFile = resolveConfigFile("conf.yaml");
 
-        Conf conf = loadConfigurationFile(configFile.getAbsolutePath());
+        MyConf.conf = loadConfigurationFile(configFile.getAbsolutePath());
 
-        loadPatternList(patternList, conf);
+        loadPatternList(patternList, MyConf.conf);
 
     }
 
