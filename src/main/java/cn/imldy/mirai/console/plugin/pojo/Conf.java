@@ -35,4 +35,14 @@ public class Conf {
     }
 
     Long targetGroup;
+
+    String targetPath;
+
+    public String getTargetPath() {
+        return targetPath;
+    }
+
+    public void setTargetPath(String targetPath) {
+        this.targetPath = targetPath;
+    }
 }

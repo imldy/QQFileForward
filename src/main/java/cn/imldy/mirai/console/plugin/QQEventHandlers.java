@@ -94,9 +94,10 @@ public class QQEventHandlers extends SimpleListenerHost {
         // 文件标识
         RemoteFiles files = targetGroup.getFiles();
         AbsoluteFolder root = files.getRoot();
-        // AbsoluteFolder folder = root.createFolder("/量化");
 
-        AbsoluteFile uploadNewFile = root.uploadNewFile(remoteName, resource);
+        AbsoluteFolder folder = root.resolveFolder(MyConf.conf.getTargetPath());
+
+        AbsoluteFile uploadNewFile = folder.uploadNewFile(remoteName, resource);
 
         // 好像不需要执行发送消息的步骤
         // FileMessage fileMessage1 = uploadNewFile.toMessage();
