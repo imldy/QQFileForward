@@ -1,0 +1,5 @@
+patterns: # 支持正则表达式
+  - ".*.xlsx" # excel 文件
+  - ".*.docx" # word文件
+sourceGroup: 110 # 源群
+targetGroup: 120 # 目标群
