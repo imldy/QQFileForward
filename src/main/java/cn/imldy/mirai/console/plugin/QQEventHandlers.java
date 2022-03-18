@@ -45,6 +45,9 @@ public class QQEventHandlers extends SimpleListenerHost {
                     fileMessage = (FileMessage) singleMessage;
             }
         }
+        // 为空代表此条信息无文件，直接结束
+        if (fileMessage == null)
+            return;
 
         // 确定本地文件存放目录
         File path = FileForward.INSTANCE.resolveDataFile("/量化");
