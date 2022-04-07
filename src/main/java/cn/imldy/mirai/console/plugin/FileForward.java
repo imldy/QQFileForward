@@ -41,6 +41,7 @@ public final class FileForward extends JavaPlugin {
         File configFile = resolveConfigFile("conf.yaml");
 
         MyConf.conf = loadConfigurationFile(configFile.getAbsolutePath());
+        getLogger().info(String.format("加载到的配置：%s", MyConf.conf));
 
         loadPatternList(patternList, MyConf.conf);
 
