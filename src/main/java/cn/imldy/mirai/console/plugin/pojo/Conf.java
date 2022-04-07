@@ -45,4 +45,14 @@ public class Conf {
     public void setTargetPath(String targetPath) {
         this.targetPath = targetPath;
     }
+
+    @Override
+    public String toString() {
+        return "Conf{" +
+                "patterns=" + patterns +
+                ", sourceGroup=" + sourceGroup +
+                ", targetGroup=" + targetGroup +
+                ", targetPath='" + targetPath + '\'' +
+                '}';
+    }
 }
