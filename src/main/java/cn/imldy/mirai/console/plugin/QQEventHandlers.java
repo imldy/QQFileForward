@@ -11,6 +11,7 @@ import net.mamoe.mirai.contact.file.RemoteFiles;
 import net.mamoe.mirai.event.EventHandler;
 import net.mamoe.mirai.event.SimpleListenerHost;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
+import net.mamoe.mirai.message.MessageReceipt;
 import net.mamoe.mirai.message.data.FileMessage;
 import net.mamoe.mirai.message.data.SingleMessage;
 import net.mamoe.mirai.utils.ExternalResource;
@@ -18,6 +19,7 @@ import net.mamoe.mirai.utils.MiraiLogger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 /**
@@ -93,7 +95,6 @@ public class QQEventHandlers extends SimpleListenerHost {
     }
 
     /**
-     *
      * @param url
      * @param destFile
      */
@@ -131,9 +132,15 @@ public class QQEventHandlers extends SimpleListenerHost {
         AbsoluteFile uploadNewFile = folder.uploadNewFile(remoteName, resource);
         logger.info(String.format("上传文件成功，返回结果[%s]", uploadNewFile));
 
-        // 好像不需要执行发送消息的步骤
-        // FileMessage fileMessage1 = uploadNewFile.toMessage();
-        // targetGroup.sendMessage(fileMessage1);
+        MessageReceipt<Group> receipt = targetGroup.sendMessage(uploadNewFile.toMessage());
+
+        int[] ids = receipt.getSource().getIds();
+        if (ids.length > 0) {
+            logger.info(String.format("发送上传文件消息成功，消息ID%s", Arrays.toString(ids)));
+        } else {
+            logger.error("发送上传文件消息失败");
+        }
+
     }
 
 
